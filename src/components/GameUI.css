@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   /* Cuter background */
   background: radial-gradient(circle at top, #3a1c52 0%, #170d2b 100%);
   overflow: hidden;

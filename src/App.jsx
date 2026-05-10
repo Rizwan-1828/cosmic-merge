@@ -6,6 +6,8 @@ function App() {
   const [playerName, setPlayerName] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [nameInput, setNameInput] = useState('');
+  
+  const leaderboard = JSON.parse(localStorage.getItem('cosmicMergeLeaderboard') || '[]');
 
   const handleStart = (e) => {
     e.preventDefault();
@@ -35,6 +37,18 @@ function App() {
           />
           <button type="submit">Play Now 💖</button>
         </form>
+
+        {leaderboard.length > 0 && (
+          <div className="start-leaderboard">
+            <h3>Top Players 🌟</h3>
+            {leaderboard.map((entry, idx) => (
+              <div key={entry.id} className="start-leaderboard-entry">
+                <span>{idx + 1}. {entry.name}</span>
+                <span>{entry.score}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

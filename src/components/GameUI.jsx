@@ -67,10 +67,19 @@ const GameUI = ({ playerName }) => {
   useEffect(() => {
     if (gameOver) {
       const stored = JSON.parse(localStorage.getItem('cosmicMergeLeaderboard') || '[]');
-      const newEntry = { name: playerName, score, id: Date.now() };
       
-      // Add, sort descending, keep top 5
-      const updated = [...stored, newEntry]
+      const existingUserIndex = stored.findIndex(entry => entry.name === playerName);
+      if (existingUserIndex >= 0) {
+        if (score > stored[existingUserIndex].score) {
+          stored[existingUserIndex].score = score;
+          stored[existingUserIndex].id = Date.now(); // Update ID to refresh key if needed
+        }
+      } else {
+        stored.push({ name: playerName, score, id: Date.now() });
+      }
+      
+      // Sort descending, keep top 5
+      const updated = stored
         .sort((a, b) => b.score - a.score)
         .slice(0, 5);
         
