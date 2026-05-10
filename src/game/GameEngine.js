@@ -41,7 +41,11 @@ export class GameEngine {
     
     // Create boundaries
     const wallOptions = { isStatic: true, render: { fillStyle: 'rgba(255, 255, 255, 0.1)' } };
-    const ground = Matter.Bodies.rectangle(GAME_WIDTH / 2, GAME_HEIGHT + 25, GAME_WIDTH, 50, wallOptions);
+    // Make ground visible and raise it so orbs don't fall off the screen
+    const ground = Matter.Bodies.rectangle(GAME_WIDTH / 2, GAME_HEIGHT - 10, GAME_WIDTH, 40, {
+      isStatic: true,
+      render: { fillStyle: 'rgba(255, 255, 255, 0.2)' }
+    });
     const leftWall = Matter.Bodies.rectangle(-25, GAME_HEIGHT / 2, 50, GAME_HEIGHT * 2, wallOptions);
     const rightWall = Matter.Bodies.rectangle(GAME_WIDTH + 25, GAME_HEIGHT / 2, 50, GAME_HEIGHT * 2, wallOptions);
     
