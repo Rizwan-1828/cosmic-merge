@@ -1,0 +1,71 @@
+.surprise-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  background: radial-gradient(circle, rgba(255, 105, 180, 0.1) 0%, rgba(0,0,0,0) 70%);
+}
+
+.surprise-container.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.surprise-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255, 105, 180, 0.2);
+  transform: translateY(20px);
+  transition: transform 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.surprise-container.visible .surprise-content {
+  transform: translateY(0);
+}
+
+.birthday-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 4rem;
+  color: #ff69b4;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.birthday-text {
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.photo-placeholder {
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  border: 2px dashed rgba(255, 105, 180, 0.5);
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
