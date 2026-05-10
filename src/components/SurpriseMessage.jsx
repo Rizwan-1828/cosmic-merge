@@ -4,7 +4,7 @@ const SurpriseMessage = ({ isVisible }) => {
   return (
     <div className={`surprise-container ${isVisible ? 'visible' : ''}`}>
       <div className="surprise-content">
-        <h1 className="birthday-title">Happy Birthday!</h1>
+        <h1 className="birthday-title">Surprise!</h1>
         <p className="birthday-text">
           I love you to the stars and back! ✨<br />
           You are the brightest star in my sky. 

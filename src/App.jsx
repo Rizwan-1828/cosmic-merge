@@ -23,7 +23,7 @@ function App() {
     <div className="start-screen-container">
       <div className="start-card">
         <h1>Cosmic Merge ✨</h1>
-        <p>A special birthday puzzle just for you!</p>
+        <p>A special surprise puzzle just for you!</p>
         <form onSubmit={handleStart}>
           <input 
             type="text" 
